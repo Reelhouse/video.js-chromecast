@@ -50,7 +50,9 @@ class ChromeCastButton extends Button {
         }
 
         videojs.log('Cast APIs are available');
-        appId = this.options_.appId || chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID;
+        // appId = this.options_.appId || chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID;
+        // `Chromecast` component does not pass `option` to `ChromeCastButton` component so we are hardcoding `appId`
+        appId = 'CFCE6F9E'
         sessionRequest = new chrome.cast.SessionRequest(appId);
         apiConfig = new chrome.cast.ApiConfig(sessionRequest, ::this.sessionJoinedListener, ::this.receiverListener);
         return chrome.cast.initialize(apiConfig, ::this.onInitSuccess, ::this.castError);

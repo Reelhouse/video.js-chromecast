@@ -82,7 +82,9 @@ var ChromeCastButton = (function (_Button) {
             }
 
             _videoJs2['default'].log('Cast APIs are available');
-            appId = this.options_.appId || chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID;
+            // appId = this.options_.appId || chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID;
+            // `Chromecast` component does not pass `option` to `ChromeCastButton` component so we are hardcoding `appId`
+            appId = 'CFCE6F9E';
             sessionRequest = new chrome.cast.SessionRequest(appId);
             apiConfig = new chrome.cast.ApiConfig(sessionRequest, this.sessionJoinedListener.bind(this), this.receiverListener.bind(this));
             return chrome.cast.initialize(apiConfig, this.onInitSuccess.bind(this), this.castError.bind(this));
