@@ -93,6 +93,7 @@ class ChromeCastButton extends Button {
     }
 
     onInitSuccess () {
+        this.show();
         return this.apiInitialized = true;
     }
 

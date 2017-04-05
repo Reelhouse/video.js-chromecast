@@ -121,6 +121,7 @@ var ChromeCastButton = (function (_Button) {
     }, {
         key: 'onInitSuccess',
         value: function onInitSuccess() {
+            this.show();
             return this.apiInitialized = true;
         }
     }, {
